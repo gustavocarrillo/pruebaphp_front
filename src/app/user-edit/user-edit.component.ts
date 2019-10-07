@@ -10,19 +10,37 @@ import { ActivatedRoute} from "@angular/router";
 export class UserEditComponent implements OnInit {
 
   user: any = {};
+  msj: any = null;
 
-  constructor(private UserService: UsersService, private ActivatedRoute: ActivatedRoute) { }
+  constructor(private Users: UsersService, private ActivatedRoute: ActivatedRoute) { }
 
   id = this.ActivatedRoute.snapshot.params.id;
 
+  reset() {
+     this.user = {};
+  }
+
+  edit() {
+      this.Users.updateUser(this.id, this.user).subscribe(
+          msj => {
+              console.log('MSJ', msj);
+              this.msj = msj;
+              setTimeout(() => {
+                    this.msj = null;
+                    // this.data = {};
+                  }, 3000);
+            },
+            error => console.log('ERROR', error));
+    }
+
   ngOnInit() {
-    this.UserService.getUser(this.id).subscribe(
-        data =>{
-          console.log('DATA',data)
-          this.user = data
+    this.Users.getUser(this.id).subscribe(
+        data => {
+          console.log('DATA', data);
+          this.user = data;
         },
-        error => console.log('ERROR',error)
-    )
+        error => console.log('ERROR', error)
+    );
   }
 
 }

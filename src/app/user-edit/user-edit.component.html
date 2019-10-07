@@ -31,8 +31,12 @@
         </div>
       </div>
       <div class="card-footer">
-        <button class="btn btn-primary btn-block">Guardar</button>
+        <button (click)="edit()" class="btn btn-primary float-right" style="margin-left: 5px;">Modificar</button>
+        <button [routerLink]="['/users/list']" class="btn btn-warning float-left">Cancelar</button>
       </div>
+    </div>
+    <div *ngIf="msj"style="margin-top: 10px">
+      <div class="alert alert-success">Usuario modificado exitosamente</div>
     </div>
   </div>
 </div>

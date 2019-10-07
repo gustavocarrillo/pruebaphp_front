@@ -1,34 +1,43 @@
 <div class="row">
-  <div class="col-md-6 offset-3">
+  <div class="col-md-8 offset-2">
     <div class="card">
       <div class="card-header">
         <h4 class="card-title">Nuevo Usuario</h4>
       </div>
       <div class="card-body">
-        <div class="form-group">
-          <label for="">Nombres</label>
-          <input type="text" name="nombres" [(ngModel)]="data.nombres" class="form-control">
+        <div class="row">
+          <div class="col-md-4">
+            <label for="">Nombres</label>
+            <input type="text" name="nombres" [(ngModel)]="data.nombres" class="form-control">
+          </div>
+          <div class="col-md-4">
+            <label for="">Apellidos</label>
+            <input type="text" name="apellidos" [(ngModel)]="data.apellidos" class="form-control">
+          </div>
+          <div class="col-md-4">
+            <label for="">Cedula</label>
+            <input type="number" min="999999" max="99999999" name="apellidos" [(ngModel)]="data.cedula" class="form-control" maxlength="8">
+          </div>
         </div>
-        <div class="form-group">
-          <label for="">Apellidos</label>
-          <input type="text" name="apellidos" [(ngModel)]="data.apellidos" class="form-control">
-        </div>
-        <div class="form-group">
-          <label for="">Cedula</label>
-          <input type="number" min="999999" max="99999999" name="apellidos" [(ngModel)]="data.cedula" class="form-control" maxlength="8">
-        </div>
-        <div class="form-group">
-          <label for="">Email</label>
-          <input type="email" name="email" [(ngModel)]="data.email" class="form-control">
-        </div>
-        <div class="form-group">
-          <label for="">Telefono</label>
-          <input type="text" name="telefono" [(ngModel)]="data.telefono" class="form-control">
+        <div class="row" style="margin-top:10px">
+          <div class="col-md-6">
+            <label for="">Email</label>
+            <input type="email" name="email" [(ngModel)]="data.email" class="form-control">
+          </div>
+          <div class="col-md-6">
+            <label for="">Telefono</label>
+            <input type="text" name="telefono" [(ngModel)]="data.telefono" class="form-control">
+          </div>
         </div>
       </div>
       <div class="card-footer">
-        <button class="btn btn-primary btn-block" (click)="add()">Guardar</button>
+        <button [routerLink]="['/users/list']" class="btn btn-warning float-left">Cancelar</button>
+        <button (click)="add()" class="btn btn-primary float-right" style="margin-left: 5px;">Guardar</button>
+        <button (click)="reset()" class="btn btn-danger float-right">Resetear</button>
       </div>
+    </div>
+    <div *ngIf="msj"style="margin-top: 10px">
+      <div class="alert alert-success">Usuario guardado exitosamente</div>
     </div>
   </div>
 </div>

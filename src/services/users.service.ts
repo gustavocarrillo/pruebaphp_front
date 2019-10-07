@@ -22,4 +22,8 @@ export class UsersService {
   setUser(data) {
     return this.http.post(this.backendUrl + 'users', data);
   }
+
+  updateUser(id, data) {
+    return this.http.post(this.backendUrl + 'users/' + id, data);
+  }
 }
