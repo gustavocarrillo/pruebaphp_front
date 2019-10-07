@@ -10,6 +10,7 @@ import { UserEditComponent } from './user-edit/user-edit.component';
 import { UserListComponent } from './user-list/user-list.component';
 
 import { UsersService } from "../services/users.service";
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { UsersService } from "../services/users.service";
     UserAddComponent,
     UserEditComponent,
     UserListComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
