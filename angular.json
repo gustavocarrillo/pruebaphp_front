@@ -24,6 +24,9 @@
               "src/assets"
             ],
             "styles": [
+              "src/styles/css/bootstrap.css",
+              "src/styles/css/bootstrap-grid.css",
+              "src/styles/css/bootstrap-reboot.css",
               "src/styles.css"
             ],
             "scripts": []
