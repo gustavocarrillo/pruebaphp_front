@@ -13,7 +13,7 @@ export class UserAddComponent implements OnInit {
   add() {
     this.Users.setUser(this.data).subscribe(
       msj => {
-        console.log('MSJ',msj);
+        console.log('MSJ', msj);
         this.msj = msj;
         setTimeout(() => {
           this.msj = null;
